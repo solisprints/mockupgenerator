@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintLab · Mockup Generator</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4gPGRlZnM+IDxsaW5lYXJHcmFkaWVudCBpZD0iYmcyIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMCI+IDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRUZCRDAiLz4gPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRkZGRkZEIi8+IDwvbGluZWFyR3JhZGllbnQ+IDwvZGVmcz4gPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjYmcyKSIvPiA8IS0tIFBob3RvY2FyZCB0aWx0ZWQgc2xpZ2h0bHkgLS0+IDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyIDM0KSByb3RhdGUoLTUpIj4gPHJlY3QgeD0iLTEzIiB5PSItMTkiIHdpZHRoPSIyNiIgaGVpZ2h0PSIzOCIgcng9IjMuNSIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjRjA4OEFFIiBzdHJva2Utd2lkdGg9IjIuNiIvPiA8IS0tIEhlYWQgY2lyY2xlIC0tPiA8Y2lyY2xlIGN4PSIwIiBjeT0iLTciIHI9IjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0YwODhBRSIgc3Ryb2tlLXdpZHRoPSIyLjYiLz4gPCEtLSBCb2R5L3Nob3VsZGVycyDigJQgYXJjIG9wZW5pbmcgdXB3YXJkIChzbWlsZS1saWtlLCBmcmFtZXMgdGhlIGhlYWQpIC0tPiA8cGF0aCBkPSJNIC0xMCAxNCBRIC0xMCAyIDAgMiBRIDEwIDIgMTAgMTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0YwODhBRSIgc3Ryb2tlLXdpZHRoPSIyLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPiA8L2c+IDwhLS0gU3BhcmtsZXMgLS0+IDxnIGZpbGw9IiNGMDg4QUUiPiA8cGF0aCBkPSJNIDEyIDE0IEwgMTMuMiAxNyBMIDE2IDE4IEwgMTMuMiAxOSBMIDEyIDIyIEwgMTAuOCAxOSBMIDggMTggTCAxMC44IDE3IFoiLz4gPHBhdGggZD0iTSA1MiA0OCBMIDUyLjggNTAgTCA1NC41IDUwLjUgTCA1Mi44IDUxIEwgNTIgNTMgTCA1MS4yIDUxIEwgNDkuNSA1MC41IEwgNTEuMiA1MCBaIi8+IDwvZz4gPC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6f0;
+    --paper: #fffdf8;
+    --ink: #2a1f1a;
+    --ink-soft: #6b5d54;
+    --accent: #e85a8c;
+    --accent-deep: #c4356b;
+    --shadow: rgba(42, 31, 26, 0.08);
+    --shadow-strong: rgba(42, 31, 26, 0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 32px 20px 60px;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(232, 90, 140, 0.08) 0%, transparent 35%),
+      radial-gradient(circle at 85% 80%, rgba(201, 184, 232, 0.12) 0%, transparent 35%),
+      radial-gradient(circle at 50% 50%, rgba(245, 217, 122, 0.06) 0%, transparent 40%);
+  }
+
+  .container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    background: rgba(232, 90, 140, 0.1);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  h1 .italic {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .card {
+    background: var(--paper);
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 24px var(--shadow), 0 1px 3px var(--shadow);
+    border: 1px solid rgba(42, 31, 26, 0.04);
+  }
+
+  .field { margin-bottom: 24px; }
+
+  .field-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .field-label .req { color: var(--accent); }
+
+  .option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .option-card {
+    background: var(--bg);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 14px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .option-card:hover {
+    border-color: rgba(232, 90, 140, 0.3);
+    transform: translateY(-1px);
+  }
+  .option-card.selected {
+    border-color: var(--accent);
+    background: rgba(232, 90, 140, 0.06);
+  }
+  .opt-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-deep);
+    letter-spacing: 0.1em;
+  }
+  .opt-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .opt-desc {
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.3;
+  }
+
+  /* Text inputs */
+  .text-input, .region-select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .text-input:focus, .region-select:focus { border-color: var(--accent); }
+
+  .region-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b5d54' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+  }
+
+  .char-count {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+  .char-count.warn { color: var(--accent-deep); font-weight: 700; }
+
+  /* Photo upload */
+  .upload-zone {
+    background: var(--bg);
+    border: 2px dashed rgba(42, 31, 26, 0.15);
+    border-radius: 14px;
+    padding: 28px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .upload-zone:hover {
+    border-color: var(--accent);
+    background: rgba(232, 90, 140, 0.04);
+  }
+  .upload-zone.has-file {
+    border-style: solid;
+    border-color: var(--accent);
+    background: rgba(232, 90, 140, 0.04);
+  }
+  .upload-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .upload-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  .upload-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .upload-sub {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .upload-preview {
+    margin-top: 12px;
+    max-height: 80px;
+    border-radius: 8px;
+    display: none;
+  }
+  .upload-zone.has-file .upload-preview { display: inline-block; }
+
+  /* Generate button */
+  .compute-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+  .compute-btn:hover {
+    background: var(--accent-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(196, 53, 107, 0.3);
+  }
+  .compute-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Result area */
+  .result {
+    margin-top: 32px;
+    display: none;
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .result.show { display: block; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-title {
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: var(--accent-deep);
+  }
+
+  .mockup-grid {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mockup-card {
+    text-align: center;
+  }
+  .mockup-card .side-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+
+  /* Photocard canvas — 2.2 x 3.5 inch ratio */
+  .photocard {
+    width: 220px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 28px var(--shadow-strong), 0 2px 6px var(--shadow);
+    background: white;
+  }
+  .photocard.rounded { border-radius: 14px; }
+
+  .photocard .photo-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Standard print — white border */
+  .photocard.standard {
+    background: white;
+    padding: 14px; /* ~1/4 inch */
+  }
+  .photocard.standard .photo-bg {
+    inset: 14px;
+    width: calc(100% - 28px);
+    height: calc(100% - 28px);
+  }
+
+  /* Polaroid */
+  .photocard.polaroid {
+    background: white;
+    padding: 14px 14px 60px 14px;
+    box-shadow: 0 12px 28px var(--shadow-strong), 0 2px 6px var(--shadow);
+  }
+  .photocard.polaroid .photo-bg {
+    inset: 14px;
+    bottom: 60px;
+    width: calc(100% - 28px);
+    height: calc(100% - 74px);
+  }
+  .photocard.polaroid .polaroid-msg {
+    position: absolute;
+    bottom: 16px;
+    left: 14px;
+    right: 14px;
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #555;
+    line-height: 1.2;
+  }
+
+  /* School template back */
+  .photocard .school-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Text overlays on school template */
+  .school-text-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Lora', serif;
+  }
+  .school-text-overlay.name {
+    /* Sits where the placeholder name was */
+    top: 60%;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+  }
+  .school-text-overlay.course {
+    top: 66%;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .school-text-overlay.message {
+    top: 72%;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.25;
+    padding: 0 18px;
+  }
+
+  /* Download buttons */
+  .download-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .dl-btn {
+    padding: 10px 18px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .dl-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* School not supported message */
+  .school-notice {
+    margin-top: 24px;
+    background: linear-gradient(135deg, rgba(232, 90, 140, 0.08), rgba(245, 217, 122, 0.08));
+    border: 1.5px solid rgba(232, 90, 140, 0.2);
+    border-radius: 14px;
+    padding: 20px 22px;
+    text-align: center;
+  }
+  .school-notice .icon { font-size: 26px; margin-bottom: 8px; }
+  .school-notice .title {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: var(--accent-deep);
+  }
+  .school-notice .body {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    margin-top: 24px;
+    background: var(--paper);
+    border: 1px dashed rgba(42, 31, 26, 0.2);
+    border-radius: 14px;
+    padding: 18px 20px;
+    position: relative;
+  }
+  .disclaimer-tag {
+    position: absolute;
+    top: -10px;
+    left: 18px;
+    background: var(--paper);
+    padding: 2px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--accent-deep);
+    font-weight: 700;
+  }
+  .disclaimer-text {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .disclaimer-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .disclaimer-text em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .card { padding: 24px 20px; }
+    .option-grid { grid-template-columns: 1fr; }
+    .photocard { width: 200px; height: 318px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="badge">Mockup Generator</span>
+      <h1>preview your <span class="italic">card</span></h1>
+      <p class="subtitle">see how your grad photocard will look before ordering ✨</p>
+    </div>
+
+    <div class="card">
+      <!-- Print option -->
+      <div class="field">
+        <label class="field-label">Print Style <span class="req">*</span></label>
+        <div class="option-grid" id="optionGrid">
+          <div class="option-card" data-option="A">
+            <div class="opt-tag">OPTION · A</div>
+            <div class="opt-name">Double-sided Photocard</div>
+            <div class="opt-desc">Photo top, both sides printed</div>
+          </div>
+          <div class="option-card" data-option="B">
+            <div class="opt-tag">OPTION · B</div>
+            <div class="opt-name">One-sided Photocard</div>
+            <div class="opt-desc">Photo top, front print only</div>
+          </div>
+          <div class="option-card" data-option="C">
+            <div class="opt-tag">OPTION · C</div>
+            <div class="opt-name">Standard Grad Print</div>
+            <div class="opt-desc">RC satin, no photo top</div>
+          </div>
+          <div class="option-card" data-option="D">
+            <div class="opt-tag">OPTION · D</div>
+            <div class="opt-name">Polaroid Print</div>
+            <div class="opt-desc">Polaroid-style print</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back design choice (only for Option A) -->
+      <div class="field" id="backChoiceField">
+        <label class="field-label">Back Design <span class="req">*</span></label>
+        <div class="option-grid">
+          <div class="option-card back-choice selected" data-back="school">
+            <div class="opt-tag">DESIGN · 1</div>
+            <div class="opt-name">School Template</div>
+            <div class="opt-desc">Use your school's grad design</div>
+          </div>
+          <div class="option-card back-choice" data-back="custom">
+            <div class="opt-tag">DESIGN · 2</div>
+            <div class="opt-name">My Own Photo</div>
+            <div class="opt-desc">Upload a back photo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- School (only for Option A + school template) -->
+      <div class="field" id="schoolField">
+        <label class="field-label">Your School <span class="req">*</span></label>
+        <select class="region-select" id="school">
+          <option value="">Select your school</option>
+          <option value="ADMU">Ateneo de Manila University (ADMU)</option>
+          <option value="CEU">Centro Escolar University (CEU)</option>
+          <option value="DLSU">De La Salle University (DLSU)</option>
+          <option value="FEU">Far Eastern University (FEU)</option>
+          <option value="MCU">Manila Central University (MCU)</option>
+          <option value="PUP">Polytechnic University of the Philippines (PUP)</option>
+          <option value="San_Beda">San Beda University</option>
+          <option value="TUA">Trinity University of Asia (TUA)</option>
+          <option value="UP">University of the Philippines (UP)</option>
+          <option value="UST">University of Santo Tomas (UST)</option>
+          <option value="OTHER">My school isn't here…</option>
+        </select>
+      </div>
+
+      <!-- Name -->
+      <div class="field">
+        <label class="field-label">Full Name <span class="req">*</span></label>
+        <input type="text" class="text-input" id="fullName" placeholder="Juan Dela Cruz" maxlength="50">
+      </div>
+
+      <!-- Course -->
+      <div class="field" id="courseField">
+        <label class="field-label">Course / Program <span class="req">*</span></label>
+        <input type="text" class="text-input" id="course" placeholder="BS Biology" maxlength="50">
+      </div>
+
+      <!-- Photo upload (front) -->
+      <div class="field">
+        <label class="field-label" id="frontPhotoLabel">Grad Photo <span class="req">*</span></label>
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="photoUpload" accept="image/*">
+          <div class="upload-icon">⬆</div>
+          <div class="upload-text" id="uploadText">Tap to upload your photo</div>
+          <div class="upload-sub" id="uploadSub">JPG or PNG · portrait works best</div>
+          <img class="upload-preview" id="uploadPreview">
+        </div>
+      </div>
+
+      <!-- Back photo upload (only when 'custom' chosen) -->
+      <div class="field" id="backPhotoField" style="display:none;">
+        <label class="field-label">Back Photo <span class="req">*</span></label>
+        <div class="upload-zone" id="backUploadZone">
+          <input type="file" id="backPhotoUpload" accept="image/*">
+          <div class="upload-icon">⬆</div>
+          <div class="upload-text" id="backUploadText">Tap to upload back photo</div>
+          <div class="upload-sub" id="backUploadSub">JPG or PNG · this goes on the back</div>
+          <img class="upload-preview" id="backUploadPreview">
+        </div>
+      </div>
+
+      <!-- Short message -->
+      <div class="field" id="messageField">
+        <label class="field-label">Short Message (optional)</label>
+        <input type="text" class="text-input" id="message" placeholder="Make a wish, leave a note..." maxlength="100">
+        <div class="char-count" id="charCount">0 / 100</div>
+      </div>
+
+      <button class="compute-btn" id="generateBtn">Generate Mockup →</button>
+    </div>
+
+    <!-- Result -->
+    <div class="result" id="result"></div>
+  </div>
+
+<script>
+  // ===== School templates (base64 embedded) =====
+  // Note: school template images are loaded from external files. Place them in same directory.
+  const SCHOOL_TEMPLATES_PLACEHOLDER = true;
+
+  // ===== School config (background + text colors) =====
+  const SCHOOLS = {
+    ADMU: { name: 'Ateneo de Manila University', acronym: 'ADMU', textColor: '#D4A93C' },
+    CEU:  { name: 'Centro Escolar University',    acronym: 'CEU',  textColor: '#1B1E5C' },
+    DLSU: { name: 'De La Salle University',       acronym: 'DLSU', textColor: '#FFFFFF' },
+    FEU:  { name: 'Far Eastern University',       acronym: 'FEU',  textColor: '#D4A93C' },
+    MCU:  { name: 'Manila Central University',    acronym: 'MCU',  textColor: '#E0A857' },
+    PUP:  { name: 'Polytechnic University of the Philippines', acronym: 'PUP', textColor: '#E0A857' },
+    San_Beda: { name: 'San Beda University',      acronym: 'San Beda', textColor: '#FFFFFF' },
+    TUA:  { name: 'Trinity University of Asia',   acronym: 'TUA',  textColor: '#D4A93C' },
+    UP:   { name: 'University of the Philippines', acronym: 'UP',  textColor: '#F2C84B' },
+    UST:  { name: 'University of Santo Tomas',    acronym: 'UST',  textColor: '#1A1A1A' }
+  };
+
+  // ===== State =====
+  let selectedOption = null;
+  let photoDataURL = null;
+  let backPhotoDataURL = null;
+  let backChoice = 'school'; // 'school' or 'custom'
+
+  // ===== Option selection (top-level print style only) =====
+  document.querySelectorAll('#optionGrid .option-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('#optionGrid .option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedOption = card.dataset.option;
+      updateFieldVisibility();
+    });
+  });
+
+  // ===== Back design choice (only relevant for Option A) =====
+  document.querySelectorAll('.back-choice').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.back-choice').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      backChoice = card.dataset.back;
+      updateFieldVisibility();
+    });
+  });
+
+  function updateFieldVisibility() {
+    const schoolField = document.getElementById('schoolField');
+    const courseField = document.getElementById('courseField');
+    const messageField = document.getElementById('messageField');
+    const backChoiceField = document.getElementById('backChoiceField');
+    const backPhotoField = document.getElementById('backPhotoField');
+
+    if (selectedOption === 'A') {
+      // Show back design picker
+      backChoiceField.style.display = '';
+
+      if (backChoice === 'school') {
+        // Use school template: show school, course, message fields
+        schoolField.style.display = '';
+        courseField.style.display = '';
+        messageField.style.display = '';
+        backPhotoField.style.display = 'none';
+        document.querySelector('#messageField .field-label').innerHTML = 'Short Message (optional)';
+      } else {
+        // Custom back photo: hide school/course/message, show back photo upload
+        schoolField.style.display = 'none';
+        courseField.style.display = 'none';
+        messageField.style.display = 'none';
+        backPhotoField.style.display = '';
+      }
+    } else if (selectedOption === 'D') {
+      schoolField.style.display = 'none';
+      courseField.style.display = 'none';
+      messageField.style.display = '';
+      backChoiceField.style.display = 'none';
+      backPhotoField.style.display = 'none';
+      document.querySelector('#messageField .field-label').innerHTML = 'Caption (optional)';
+    } else {
+      schoolField.style.display = 'none';
+      courseField.style.display = 'none';
+      messageField.style.display = 'none';
+      backChoiceField.style.display = 'none';
+      backPhotoField.style.display = 'none';
+    }
+  }
+
+  // ===== Photo upload =====
+  const photoInput = document.getElementById('photoUpload');
+  const uploadZone = document.getElementById('uploadZone');
+  const uploadPreview = document.getElementById('uploadPreview');
+  const uploadText = document.getElementById('uploadText');
+  const uploadSub = document.getElementById('uploadSub');
+
+  photoInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      photoDataURL = ev.target.result;
+      uploadPreview.src = photoDataURL;
+      uploadZone.classList.add('has-file');
+      uploadText.textContent = file.name;
+      uploadSub.textContent = 'Tap to change';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // ===== Back photo upload =====
+  const backPhotoInput = document.getElementById('backPhotoUpload');
+  const backUploadZone = document.getElementById('backUploadZone');
+  const backUploadPreview = document.getElementById('backUploadPreview');
+  const backUploadText = document.getElementById('backUploadText');
+  const backUploadSub = document.getElementById('backUploadSub');
+
+  backPhotoInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      backPhotoDataURL = ev.target.result;
+      backUploadPreview.src = backPhotoDataURL;
+      backUploadZone.classList.add('has-file');
+      backUploadText.textContent = file.name;
+      backUploadSub.textContent = 'Tap to change';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // ===== Char count =====
+  const messageInput = document.getElementById('message');
+  const charCount = document.getElementById('charCount');
+  messageInput.addEventListener('input', () => {
+    const len = messageInput.value.length;
+    charCount.textContent = `${len} / 100`;
+    charCount.classList.toggle('warn', len >= 90);
+  });
+
+  // ===== Generate button =====
+  document.getElementById('generateBtn').addEventListener('click', generateMockup);
+
+  function getMessageFontSize(msg) {
+    // Adjust font size based on message length
+    const len = msg.length;
+    if (len <= 30) return 11;
+    if (len <= 60) return 9.5;
+    if (len <= 80) return 8.5;
+    return 7.5;
+  }
+
+  function getPolaroidFontSize(msg) {
+    const len = msg.length;
+    if (len <= 20) return 16;
+    if (len <= 40) return 13;
+    if (len <= 70) return 11;
+    return 9.5;
+  }
+
+  function generateMockup() {
+    const result = document.getElementById('result');
+
+    // Validate
+    if (!selectedOption) {
+      alert('Please pick a print style first');
+      return;
+    }
+    if (!photoDataURL) {
+      alert('Please upload your grad photo');
+      return;
+    }
+
+    if (selectedOption === 'A') {
+      if (backChoice === 'school') {
+        const school = document.getElementById('school').value;
+        const fullName = document.getElementById('fullName').value.trim();
+        const course = document.getElementById('course').value.trim();
+
+        if (!school) { alert('Please select your school'); return; }
+        if (!fullName) { alert('Please enter your full name'); return; }
+        if (!course) { alert('Please enter your course'); return; }
+
+        if (school === 'OTHER') {
+          renderSchoolNotice();
+          return;
+        }
+        renderDoubleSided(school, fullName, course);
+      } else {
+        // Custom back photo
+        if (!backPhotoDataURL) { alert('Please upload your back photo'); return; }
+        renderDoubleSidedCustom();
+      }
+    } else if (selectedOption === 'B') {
+      renderOneSided();
+    } else if (selectedOption === 'C') {
+      renderStandard();
+    } else if (selectedOption === 'D') {
+      renderPolaroid();
+    }
+
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderSchoolNotice() {
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="school-notice">
+        <div class="icon">✿</div>
+        <div class="title">Your school isn't on our list yet</div>
+        <div class="body">
+          No worries! We haven't built a template for your school just yet, but we'd love to create a custom one for you. Drop us a message on your order form with your school name and seal — we'll design it specially. 💌
+        </div>
+      </div>
+    `;
+    result.classList.add('show');
+  }
+
+  function renderDoubleSided(school, fullName, course) {
+    const msg = document.getElementById('message').value.trim();
+    const config = SCHOOLS[school];
+    const msgFontSize = getMessageFontSize(msg);
+    const templateSrc = `${school}.jpg`;
+
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="result-title">your mockup ✿</div>
+      <div class="mockup-grid">
+        <div class="mockup-card">
+          <div class="side-label">— Front —</div>
+          <div class="photocard rounded">
+            <img class="photo-bg" src="${photoDataURL}" alt="Front">
+          </div>
+        </div>
+        <div class="mockup-card">
+          <div class="side-label">— Back —</div>
+          <div class="photocard rounded">
+            <img class="school-bg" src="${templateSrc}" alt="${config.name}"
+                 onerror="this.style.display='none'; this.parentElement.style.background='#2a2a2a';">
+            <div class="school-text-overlay name" style="color: ${config.textColor};">${escapeHtml(fullName)}</div>
+            <div class="school-text-overlay course" style="color: ${config.textColor};">${escapeHtml(course)}</div>
+            ${msg ? `<div class="school-text-overlay message" style="color: ${config.textColor}; font-size: ${msgFontSize}px;">${escapeHtml(msg)}</div>` : ''}
+          </div>
+        </div>
+      </div>
+      ${disclaimerHtml()}
+      ${resetButtonHtml()}
+    `;
+    result.classList.add('show');
+  }
+
+  function renderDoubleSidedCustom() {
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="result-title">your mockup ✿</div>
+      <div class="mockup-grid">
+        <div class="mockup-card">
+          <div class="side-label">— Front —</div>
+          <div class="photocard rounded">
+            <img class="photo-bg" src="${photoDataURL}" alt="Front">
+          </div>
+        </div>
+        <div class="mockup-card">
+          <div class="side-label">— Back —</div>
+          <div class="photocard rounded">
+            <img class="photo-bg" src="${backPhotoDataURL}" alt="Back">
+          </div>
+        </div>
+      </div>
+      ${disclaimerHtml()}
+      ${resetButtonHtml()}
+    `;
+    result.classList.add('show');
+  }
+
+  function renderOneSided() {
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="result-title">your mockup ✿</div>
+      <div class="mockup-grid">
+        <div class="mockup-card">
+          <div class="side-label">— Front —</div>
+          <div class="photocard rounded">
+            <img class="photo-bg" src="${photoDataURL}" alt="Front">
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:14px; font-size:12px; color:var(--ink-soft); font-style:italic;">Back is blank/white</p>
+      ${disclaimerHtml()}
+      ${resetButtonHtml()}
+    `;
+    result.classList.add('show');
+  }
+
+  function renderStandard() {
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="result-title">your mockup ✿</div>
+      <div class="mockup-grid">
+        <div class="mockup-card">
+          <div class="side-label">— Standard Print —</div>
+          <div class="photocard standard">
+            <img class="photo-bg" src="${photoDataURL}" alt="Standard">
+          </div>
+        </div>
+      </div>
+      ${disclaimerHtml()}
+      ${resetButtonHtml()}
+    `;
+    result.classList.add('show');
+  }
+
+  function renderPolaroid() {
+    const msg = document.getElementById('message').value.trim();
+    const msgFontSize = getPolaroidFontSize(msg);
+    const result = document.getElementById('result');
+    result.innerHTML = `
+      <div class="result-title">your mockup ✿</div>
+      <div class="mockup-grid">
+        <div class="mockup-card">
+          <div class="side-label">— Polaroid —</div>
+          <div class="photocard polaroid">
+            <img class="photo-bg" src="${photoDataURL}" alt="Polaroid">
+            ${msg ? `<div class="polaroid-msg" style="font-size:${msgFontSize}px;">${escapeHtml(msg)}</div>` : ''}
+          </div>
+        </div>
+      </div>
+      ${disclaimerHtml()}
+      ${resetButtonHtml()}
+    `;
+    result.classList.add('show');
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function disclaimerHtml() {
+    return `
+      <div class="disclaimer">
+        <span class="disclaimer-tag">HEADS UP</span>
+        <div class="disclaimer-text">
+          This is just a <strong>preview</strong> — the actual print may look slightly different. We may <em>zoom or recenter</em> your photo to fit nicely, and <strong>colors may shift a little</strong> since we print at home (not a pro lab). We'll do our best to match your vision though! ✿
+        </div>
+      </div>
+    `;
+  }
+
+  function resetButtonHtml() {
+    return `
+      <div class="download-row">
+        <button class="dl-btn" onclick="resetMockup()">↻ Start Over</button>
+      </div>
+    `;
+  }
+
+  function resetMockup() {
+    // Clear front photo
+    photoDataURL = null;
+    document.getElementById('photoUpload').value = '';
+    document.getElementById('uploadZone').classList.remove('has-file');
+    document.getElementById('uploadText').textContent = 'Tap to upload your photo';
+    document.getElementById('uploadSub').textContent = 'JPG or PNG · portrait works best';
+    document.getElementById('uploadPreview').src = '';
+
+    // Clear back photo
+    backPhotoDataURL = null;
+    document.getElementById('backPhotoUpload').value = '';
+    document.getElementById('backUploadZone').classList.remove('has-file');
+    document.getElementById('backUploadText').textContent = 'Tap to upload back photo';
+    document.getElementById('backUploadSub').textContent = 'JPG or PNG · this goes on the back';
+    document.getElementById('backUploadPreview').src = '';
+
+    // Reset back choice to "school"
+    backChoice = 'school';
+    document.querySelectorAll('.back-choice').forEach(c => c.classList.remove('selected'));
+    document.querySelector('.back-choice[data-back="school"]').classList.add('selected');
+
+    // Clear text inputs
+    document.getElementById('fullName').value = '';
+    document.getElementById('course').value = '';
+    document.getElementById('message').value = '';
+    document.getElementById('school').value = '';
+    document.getElementById('charCount').textContent = '0 / 100';
+    document.getElementById('charCount').classList.remove('warn');
+
+    // Hide result
+    const result = document.getElementById('result');
+    result.classList.remove('show');
+    result.innerHTML = '';
+
+    // Reset to default print style (Option A)
+    document.querySelector('#optionGrid .option-card[data-option="A"]').click();
+
+    // Scroll back to top of form
+    document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Default to Option A
+  document.querySelector('#optionGrid .option-card[data-option="A"]').click();
+</script>
+</body>
+</html>
